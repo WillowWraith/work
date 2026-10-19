@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: transparent;
+      -webkit-app-region: drag;
+    }
+    #pet {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+  <img id="pet" src="./pet.png" alt="pet">
+  <script>
+    const { ipcRenderer } = require('electron')
+    const pet = document.getElementById('pet')
+
+    pet.addEventListener('mouseenter', () => {
+      ipcRenderer.send('set-ignore-mouse-events', false)
+    })
+    pet.addEventListener('mouseleave', () => {
+      ipcRenderer.send('set-ignore-mouse-events', true, { forward: true })
+    })
+  </script>
+</body>
+</html>

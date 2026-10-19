@@ -1,0 +1,28 @@
+{
+  "name": "desktop-pet-electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:win": "electron-builder --win" 
+  },
+  "build": {
+    "appId": "com.yourname.desktoppet",
+    "productName": "桌面宠物",
+    "win": {
+      "target": "portable",
+      "icon": "build/icon.ico" 
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "桌面宠物"
+    }
+  },
+  "devDependencies": {
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3"
+  }
+}
